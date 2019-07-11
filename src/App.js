@@ -1,11 +1,12 @@
 import React from 'react';
-import axios from 'axios';
+import CurrencyConversion from './CurrencyConversion'
 import './App.css';
 
 function App () {
   return (
     <div className="App">
       <p>Currency Conversion</p>
+      <CurrencyConversion />
     </div>
   );
 }

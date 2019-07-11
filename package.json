@@ -28,5 +28,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  // TODO: Check link from Readme and make proxy to work for other servers(like google)
+  "proxy": "https://us-central1-capco-243515.cloudfunctions.net"
 }
