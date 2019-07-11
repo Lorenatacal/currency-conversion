@@ -2,40 +2,46 @@ import React from 'react';
 import axios from 'axios';
 
 class CurrencyConvertor extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor (props) {
+    super (props);
     this.state = {
-        response: false,
-        amount: "",
-        USB: "",
-        EUR: ""
+      response: false,
+      amount: '',
+      USD: '',
+      EUR: '',
     };
   }
 
-  render() {
-    axios.get('/front-end-test-api', {
-      headers: {
-        'accept': 'application/json',
-       },
-       params: {
-        "amount": "20",
-       }
+  render () {
+    axios
+      .get ('/front-end-test-api', {
+        headers: {
+          accept: 'application/json',
+        },
+        params: {
+          amount: '20',
+        },
       })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-    .finally(function () {
-    });
-    return(
+      .then (response => {
+        this.setState ({
+          response: true,
+          amount: '20',
+          USD: response.data.USD,
+          EUR: response.data.EUR,
+        });
+      })
+      .catch (function (error) {
+        return error;
+      })
+      .finally (function () {});
+    return (
       <div>
-        <p>{this.state.amount}</p>
-        <p>{this.state.USD}</p>
-        <p>{this.state.EUR}</p>
+        <input type="number" min="10" max="10000" />
+        <p>{this.state.amount} GBP</p>
+        <p>{this.state.USD} USD</p>
+        <p>{this.state.EUR} EUR</p>
       </div>
-    )
+    );
   }
 }
 
