@@ -5,27 +5,30 @@ class CurrencyConvertor extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      response: false,
       amount: '',
       USD: '',
       EUR: '',
     };
+    this.handleChange = this.handleChange.bind (this);
+    this.handleSubmit = this.handleSubmit.bind (this);
   }
 
-  render () {
+  handleChange (e) {
+    this.setState ({amount: e.target.value});
+  }
+
+  handleSubmit (e) {
     axios
       .get ('/front-end-test-api', {
         headers: {
           accept: 'application/json',
         },
         params: {
-          amount: '20',
+          amount: this.state.amount,
         },
       })
       .then (response => {
         this.setState ({
-          response: true,
-          amount: '20',
           USD: response.data.USD,
           EUR: response.data.EUR,
         });
@@ -34,9 +37,22 @@ class CurrencyConvertor extends React.Component {
         return error;
       })
       .finally (function () {});
+    e.preventDefault ();
+  }
+
+  render () {
     return (
       <div>
-        <input type="number" min="10" max="10000" />
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="number"
+            min="1"
+            max="10000"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+          <input type="submit" value="Submit" />
+        </form>
         <p>{this.state.amount} GBP</p>
         <p>{this.state.USD} USD</p>
         <p>{this.state.EUR} EUR</p>
