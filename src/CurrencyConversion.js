@@ -1,12 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 
+function setCurrencies (data) {
+  let arr = [];
+  Object.keys (data).forEach (key => {
+    arr.push ({[key]: data[key]});
+  });
+  return arr;
+}
+
 class CurrencyConvertor extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
       amount: '',
-      data: '',
+      currencies: [],
       sort: false,
     };
     this.handleChange = this.handleChange.bind (this);
@@ -28,8 +36,9 @@ class CurrencyConvertor extends React.Component {
         },
       })
       .then (response => {
+        console.log (Object.keys (response.data), 'key');
         this.setState ({
-          data: response.data,
+          currencies: setCurrencies (response.data),
         });
       })
       .catch (function (error) {
@@ -40,28 +49,24 @@ class CurrencyConvertor extends React.Component {
   }
 
   render () {
-    const currencies = [];
-    Object.keys (this.state.data).forEach (elem =>
-      currencies.push ({[elem]: this.state.data[elem]})
-    );
-
     function sortList () {
-      currencies.sort (function (a, b) {
-        var x = Object.keys (a);
-        var y = Object.keys (b);
-        if (x < y) {
-          return -1;
-        }
-        if (x > y) {
-          return 1;
-        }
-        return 0;
-      });
+      // currencies.sort (function (a, b) {
+      //   var x = Object.keys (a);
+      //   var y = Object.keys (b);
+      //   if (x < y) {
+      //     return -1;
+      //   }
+      //   if (x > y) {
+      //     return 1;
+      //   }
+      //   return 0;
+      // });
     }
 
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <span>Enter GBP amount: </span>
           <input
             type="number"
             min="1"
@@ -72,7 +77,7 @@ class CurrencyConvertor extends React.Component {
           <input type="submit" value="Submit" />
         </form>
         <ul>
-          {currencies.map ((elem, index) => {
+          {this.state.currencies.map ((elem, index) => {
             return (
               <li key={index}>
                 <span>{Object.keys (elem)}:</span>
