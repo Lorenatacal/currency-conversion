@@ -6,8 +6,7 @@ class CurrencyConvertor extends React.Component {
     super (props);
     this.state = {
       amount: '',
-      USD: '',
-      EUR: '',
+      data: '',
     };
     this.handleChange = this.handleChange.bind (this);
     this.handleSubmit = this.handleSubmit.bind (this);
@@ -29,8 +28,7 @@ class CurrencyConvertor extends React.Component {
       })
       .then (response => {
         this.setState ({
-          USD: response.data.USD,
-          EUR: response.data.EUR,
+          data: response.data,
         });
       })
       .catch (function (error) {
@@ -41,6 +39,12 @@ class CurrencyConvertor extends React.Component {
   }
 
   render () {
+    const currencies = [
+      {GBP: this.state.amount},
+      {USD: this.state.data.USD},
+      {EUR: this.state.data.EUR},
+    ];
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -53,9 +57,16 @@ class CurrencyConvertor extends React.Component {
           />
           <input type="submit" value="Submit" />
         </form>
-        <p>{this.state.amount} GBP</p>
-        <p>{this.state.USD} USD</p>
-        <p>{this.state.EUR} EUR</p>
+        <ul>
+          {currencies.map ((elem, index) => {
+            return (
+              <li key={index}>
+                <span>elem thekeyValue</span>
+                <span> elem the value</span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
