@@ -36,7 +36,6 @@ class CurrencyConvertor extends React.Component {
         },
       })
       .then (response => {
-        console.log (Object.keys (response.data), 'key');
         this.setState ({
           currencies: setCurrencies (response.data),
         });
@@ -48,21 +47,23 @@ class CurrencyConvertor extends React.Component {
     e.preventDefault ();
   }
 
-  render () {
-    function sortList () {
-      // currencies.sort (function (a, b) {
-      //   var x = Object.keys (a);
-      //   var y = Object.keys (b);
-      //   if (x < y) {
-      //     return -1;
-      //   }
-      //   if (x > y) {
-      //     return 1;
-      //   }
-      //   return 0;
-      // });
-    }
+  sortList () {
+    this.setState ({
+      currencies: this.state.currencies.sort (function (a, b) {
+        var x = Object.keys (a);
+        var y = Object.keys (b);
+        if (x < y) {
+          return -1;
+        }
+        if (x > y) {
+          return 1;
+        }
+        return 0;
+      }),
+    });
+  }
 
+  render () {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -88,11 +89,11 @@ class CurrencyConvertor extends React.Component {
         </ul>
         <button
           onClick={() => {
-            sortList ();
+            this.sortList ();
             this.setState ({sort: true});
           }}
         >
-          Sort
+          Sort A-Z
         </button>
       </div>
     );
