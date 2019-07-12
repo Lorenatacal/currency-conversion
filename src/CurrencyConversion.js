@@ -40,11 +40,10 @@ class CurrencyConvertor extends React.Component {
   }
 
   render () {
-    const currencies = [
-      {GBP: this.state.amount},
-      {USD: this.state.data.USD},
-      {EUR: this.state.data.EUR},
-    ];
+    const currencies = [];
+    Object.keys (this.state.data).forEach (elem =>
+      currencies.push ({[elem]: this.state.data[elem]})
+    );
 
     function sortList () {
       currencies.sort (function (a, b) {
