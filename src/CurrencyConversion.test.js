@@ -31,6 +31,9 @@ describe ('CurrencyConvertor()', () => {
     );
     const wrapper = Enzyme.shallow (<CurrencyConvertor />);
 
+    const userInput = wrapper.find ('[data-name="user-input"]');
+    userInput.simulate ('change', {target: {value: '20'}});
+
     const form = wrapper.find ('[data-name="submit"]');
     form.simulate ('submit', {
       preventDefault: () => {},
@@ -42,10 +45,24 @@ describe ('CurrencyConvertor()', () => {
         accept: 'application/json',
       },
       params: {
-        amount: '',
+        amount: '20',
       },
     });
     await waait ();
     expect (toJson (wrapper)).toMatchSnapshot ();
   });
+});
+
+test ('sortList()', () => {
+  const wrapper = Enzyme.shallow (<CurrencyConvertor />);
+  wrapper.setState ({
+    currencies: [{USD: 1.98}, {EUR: 1.43}],
+  });
+
+  const sortListSpy = jest.spyOn (CurrencyConvertor.prototype, 'sortList');
+
+  const button = wrapper.find ('[data-name="sort-button"]');
+  button.simulate ('click');
+  expect (sortListSpy).toHaveBeenCalled ();
+  expect (wrapper.state ().currencies).toEqual ([{EUR: 1.43}, {USD: 1.98}]);
 });

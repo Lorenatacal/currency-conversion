@@ -10,6 +10,7 @@ exports[`CurrencyConvertor() should render correctly with data 1`] = `
       Enter GBP amount: 
     </span>
     <input
+      data-name="user-input"
       max="10000"
       min="1"
       onChange={[Function]}
@@ -47,6 +48,7 @@ exports[`CurrencyConvertor() should render correctly with data 1`] = `
     </li>
   </ul>
   <button
+    data-name="sort-button"
     onClick={[Function]}
   >
     Sort A-Z
@@ -64,6 +66,7 @@ exports[`CurrencyConvertor() should render correctly without data 1`] = `
       Enter GBP amount: 
     </span>
     <input
+      data-name="user-input"
       max="10000"
       min="1"
       onChange={[Function]}
@@ -76,6 +79,7 @@ exports[`CurrencyConvertor() should render correctly without data 1`] = `
   </form>
   <ul />
   <button
+    data-name="sort-button"
     onClick={[Function]}
   >
     Sort A-Z

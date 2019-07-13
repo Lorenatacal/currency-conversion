@@ -61,6 +61,7 @@ class CurrencyConvertor extends React.Component {
         <form data-name="submit" onSubmit={this.handleSubmit}>
           <span>Enter GBP amount: </span>
           <input
+            data-name="user-input"
             type="number"
             min="1"
             max="10000"
@@ -80,6 +81,7 @@ class CurrencyConvertor extends React.Component {
           })}
         </ul>
         <button
+          data-name="sort-button"
           onClick={() => {
             this.sortList ();
             this.setState ({sort: true});
