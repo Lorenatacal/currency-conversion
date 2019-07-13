@@ -1,13 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
-function setCurrencies (data) {
-  let arr = [];
-  Object.keys (data).forEach (key => {
-    arr.push ({[key]: data[key]});
-  });
-  return arr;
-}
+import setCurrencies from './setCurrencies';
 
 class CurrencyConvertor extends React.Component {
   constructor (props) {
