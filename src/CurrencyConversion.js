@@ -1,6 +1,37 @@
 import React from 'react';
 import axios from 'axios';
 import setCurrencies from './utils/setCurrencies';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+  padding: 1em;
+  text-align: center;
+  margin-left:10%;
+  margin-right:10%;
+  border: 0.5px solid gray;
+  box-shadow: 2px -2px #CCC;
+  border-radius: 20px;
+  font-family: 'Notable', sans-serif;
+`;
+const List = styled.ul`
+  list-style-type: none;
+  text-align: center;
+  margin-left: -6%
+`;
+const Button = styled.button`
+  font-size: 0.8em;
+  margin: 1em;
+  padding: 0.25em 0.25em;
+  border: 1px solid gray;
+  border-radius: 1px;
+`;
+const Input = styled.input`
+  font-size: 0.8em;
+  margin: 1em;
+  padding: 0.25em 0.25em;
+  border: 1px solid gray;
+  border-radius: 1px;
+`;
 
 class CurrencyConvertor extends React.Component {
   constructor (props) {
@@ -57,7 +88,7 @@ class CurrencyConvertor extends React.Component {
 
   render () {
     return (
-      <div>
+      <Wrapper>
         <form data-name="submit" onSubmit={this.handleSubmit}>
           <span>Enter GBP amount: </span>
           <input
@@ -68,9 +99,9 @@ class CurrencyConvertor extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Submit" />
+          <Input type="submit" value="Submit" />
         </form>
-        <ul>
+        <List>
           {this.state.currencies.map ((elem, index) => {
             return (
               <li key={index}>
@@ -79,8 +110,8 @@ class CurrencyConvertor extends React.Component {
               </li>
             );
           })}
-        </ul>
-        <button
+        </List>
+        <Button
           data-name="sort-button"
           onClick={() => {
             this.sortList ();
@@ -88,8 +119,8 @@ class CurrencyConvertor extends React.Component {
           }}
         >
           Sort A-Z
-        </button>
-      </div>
+        </Button>
+      </Wrapper>
     );
   }
 }

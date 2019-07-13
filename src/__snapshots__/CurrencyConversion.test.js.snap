@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyConvertor() should render correctly with data 1`] = `
-<div>
+<styled.section>
   <form
     data-name="submit"
     onSubmit={[Function]}
@@ -16,12 +16,12 @@ exports[`CurrencyConvertor() should render correctly with data 1`] = `
       onChange={[Function]}
       type="number"
     />
-    <input
+    <styled.input
       type="submit"
       value="Submit"
     />
   </form>
-  <ul>
+  <styled.ul>
     <li
       key="0"
     >
@@ -46,18 +46,18 @@ exports[`CurrencyConvertor() should render correctly with data 1`] = `
         3.36
       </span>
     </li>
-  </ul>
-  <button
+  </styled.ul>
+  <styled.button
     data-name="sort-button"
     onClick={[Function]}
   >
     Sort A-Z
-  </button>
-</div>
+  </styled.button>
+</styled.section>
 `;
 
 exports[`CurrencyConvertor() should render correctly without data 1`] = `
-<div>
+<styled.section>
   <form
     data-name="submit"
     onSubmit={[Function]}
@@ -72,17 +72,17 @@ exports[`CurrencyConvertor() should render correctly without data 1`] = `
       onChange={[Function]}
       type="number"
     />
-    <input
+    <styled.input
       type="submit"
       value="Submit"
     />
   </form>
-  <ul />
-  <button
+  <styled.ul />
+  <styled.button
     data-name="sort-button"
     onClick={[Function]}
   >
     Sort A-Z
-  </button>
-</div>
+  </styled.button>
+</styled.section>
 `;

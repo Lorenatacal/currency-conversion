@@ -4,9 +4,9 @@ exports[`App should render correctly 1`] = `
 <div
   className="App"
 >
-  <p>
+  <styled.h2>
     Currency Conversion
-  </p>
+  </styled.h2>
   <CurrencyConvertor />
 </div>
 `;
