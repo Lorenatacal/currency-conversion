@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import setCurrencies from './setCurrencies';
+import setCurrencies from './utils/setCurrencies';
 
 class CurrencyConvertor extends React.Component {
   constructor (props) {
