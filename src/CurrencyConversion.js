@@ -35,8 +35,7 @@ class CurrencyConvertor extends React.Component {
       })
       .catch (function (error) {
         return error;
-      })
-      .finally (function () {});
+      });
     e.preventDefault ();
   }
 
@@ -59,7 +58,7 @@ class CurrencyConvertor extends React.Component {
   render () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form data-name="submit" onSubmit={this.handleSubmit}>
           <span>Enter GBP amount: </span>
           <input
             type="number"

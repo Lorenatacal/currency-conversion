@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyConvertor() should render correctly with data 1`] = `
+<div>
+  <form
+    data-name="submit"
+    onSubmit={[Function]}
+  >
+    <span>
+      Enter GBP amount: 
+    </span>
+    <input
+      max="10000"
+      min="1"
+      onChange={[Function]}
+      type="number"
+    />
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <ul>
+    <li
+      key="0"
+    >
+      <span>
+        USD
+        :
+      </span>
+      <span>
+         
+        3.81
+      </span>
+    </li>
+    <li
+      key="1"
+    >
+      <span>
+        EUR
+        :
+      </span>
+      <span>
+         
+        3.36
+      </span>
+    </li>
+  </ul>
+  <button
+    onClick={[Function]}
+  >
+    Sort A-Z
+  </button>
+</div>
+`;
+
+exports[`CurrencyConvertor() should render correctly without data 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <span>
+      Enter GBP amount: 
+    </span>
+    <input
+      max="10000"
+      min="1"
+      onChange={[Function]}
+      type="number"
+    />
+    <input
+      data-name="submit"
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <ul />
+  <button
+    onClick={[Function]}
+  >
+    Sort A-Z
+  </button>
+</div>
+`;

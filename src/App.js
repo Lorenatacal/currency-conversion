@@ -1,5 +1,5 @@
 import React from 'react';
-import CurrencyConversion from './CurrencyConversion'
+import CurrencyConversion from './CurrencyConversion';
 import './App.css';
 
 function App () {
