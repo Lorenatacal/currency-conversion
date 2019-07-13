@@ -57,6 +57,7 @@ exports[`CurrencyConvertor() should render correctly with data 1`] = `
 exports[`CurrencyConvertor() should render correctly without data 1`] = `
 <div>
   <form
+    data-name="submit"
     onSubmit={[Function]}
   >
     <span>
@@ -69,7 +70,6 @@ exports[`CurrencyConvertor() should render correctly without data 1`] = `
       type="number"
     />
     <input
-      data-name="submit"
       type="submit"
       value="Submit"
     />

@@ -12,11 +12,11 @@ jest.mock ('axios');
 
 describe ('CurrencyConvertor()', () => {
   test ('should render correctly without data', () => {
-    const wrapper = Enzyme.shallow (<CurrencyConversion />);
+    const wrapper = Enzyme.shallow (<CurrencyConvertor />);
     expect (toJson (wrapper)).toMatchSnapshot ();
   });
 
-  test.only ('should render correctly with data', async () => {
+  test ('should render correctly with data', async () => {
     const mockedResponse = {
       data: {
         USD: 3.81,
